@@ -33,6 +33,17 @@ var setAlan = aTuringRef.set({
   'born': 1912
 });
 
+
+db.collection('users').get()
+  .then((snapshot) => {
+    snapshot.forEach((doc) => {
+      console.log(doc.id, '=>', doc.data());
+    });
+  })
+  .catch((err) => {
+    console.log('Error getting documents', err);
+  });
+
 var surgery;
 var price;
 var doctorName;
