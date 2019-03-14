@@ -1,10 +1,11 @@
-var admin = require('firebase-admin');
+const admin = require('firebase-admin');
 import * as admin from 'firebase-admin';
 var serviceAccount = require('wecarebilltest-5a6d2-firebase-adminsdk-urqeh-3e012e84b8.json');
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: 'https://wecarebilltest-5a6d2.firebaseio.com'
+    credential: admin.credential.cert(serviceAccount)
   });
+
+var db = admin.firestore();
 
 'use strict';
  
@@ -14,6 +15,23 @@ const {Card, Suggestion} = require('dialogflow-fulfillment');
 const {dialogflow} = require('actions-on-google');
 
 const app = dialogflow();
+
+var docRef = db.collection('users').doc('alovelace');
+
+var setAda = docRef.set({
+  first: 'Ada',
+  last: 'Lovelace',
+  born: 1815
+});
+
+var aTuringRef = db.collection('users').doc('aturing');
+
+var setAlan = aTuringRef.set({
+  'first': 'Alan',
+  'middle': 'Mathison',
+  'last': 'Turing',
+  'born': 1912
+});
 
 var surgery;
 var price;
@@ -67,6 +85,19 @@ var gastroscopy_summary= {
         
         
     };
+
+var cityRef = db.collection('cities').doc('SF');
+var getDoc = cityRef.get()
+  .then(doc => {
+    if (!doc.exists) {
+      console.log('No such document!');
+    } else {
+      console.log('Document data:', doc.data());
+    }
+  })
+  .catch(err => {
+    console.log('Error getting document', err);
+  });
 
 // var gastroscopy_C = ["沒有併發症/複雜/特別風險/另加手術", "中風險", "有併發症/複雜/另加手術", "急症"];
 
