@@ -1,6 +1,6 @@
 const admin = require('firebase-admin');
 // import * as admin from 'firebase-admin';
-var serviceAccount = require('wecarebilltest-5a6d2-firebase-adminsdk-urqeh-3e012e84b8.json');
+var serviceAccount = require('/Users/user/weCareBillTest/wecarebilltest-5a6d2-firebase-adminsdk-urqeh-3e012e84b8.json');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
   });
