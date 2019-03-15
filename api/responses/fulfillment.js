@@ -44,6 +44,7 @@ module.exports = function () {
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
   intentMap.set('Default Fallback Intent', checking);
+  intentMap.set('User inputs surgery', welcome);
   // intentMap.set('<INTENT_NAME_HERE>', yourFunctionHandler);
   // intentMap.set('<INTENT_NAME_HERE>', googleAssistantHandler);
   agent.handleRequest(intentMap)
