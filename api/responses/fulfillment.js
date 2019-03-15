@@ -20,9 +20,11 @@ module.exports = function () {
     // });
 
     // var db = admin.firestore();
-    var surgery = await db.collection('surgery').doc('58').collection('option').doc('general').get()
+    // var surgery = await db.collection('surgery').doc('58').collection('option').doc('general').get()
     
-    agent.add(surgery);
+    // agent.add(surgery);
+
+    agent.add(`Hi`);
   }
 
   function fallback(agent) {
