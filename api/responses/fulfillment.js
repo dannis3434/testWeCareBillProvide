@@ -9,7 +9,20 @@ module.exports = function () {
   const agent = new WebhookClient({ request: req, response: res });
 
   function welcome(agent) {
-    agent.add(`Welcome to my agent!++++++`);
+    
+    var admin = require('firebase-admin');
+
+    var serviceAccount = require(sails.config.appPath + '/wecarebill-92132-firebase-adminsdk-7usxj-6240df0e36.json');
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+      databaseURL: 'https://wecarebill-92132.firebaseio.com'
+
+    });
+
+    var db = admin.firestore();
+    var surgery = await db.collection('surgery').doc('58').collection('option').doc('general').get()
+    
+    agent.add(surgery);
   }
 
   function fallback(agent) {
@@ -43,7 +56,7 @@ module.exports = function () {
   let intentMap = new Map();
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
-  intentMap.set('Default Fallback Intent', checking);
+  // intentMap.set('Default Fallback Intent', checking);
   intentMap.set('User inputs surgery', welcome);
   // intentMap.set('<INTENT_NAME_HERE>', yourFunctionHandler);
   // intentMap.set('<INTENT_NAME_HERE>', googleAssistantHandler);
