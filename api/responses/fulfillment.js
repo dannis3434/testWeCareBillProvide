@@ -8,7 +8,7 @@ module.exports = function () {
 
   const agent = new WebhookClient({ request: req, response: res });
 
-  function welcome(agent) {
+  async function welcome(agent) {
     
     var admin = require('firebase-admin');
 
