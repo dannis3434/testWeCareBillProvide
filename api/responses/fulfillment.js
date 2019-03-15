@@ -10,21 +10,21 @@ module.exports = function () {
 
   async function welcome(agent) {
     
-    // var admin = require('firebase-admin');
+    var admin = require('firebase-admin');
 
-    // var serviceAccount = require(sails.config.appPath + '/wecarebill-92132-firebase-adminsdk-7usxj-6240df0e36.json');
-    // admin.initializeApp({
-    //   credential: admin.credential.cert(serviceAccount),
-    //   databaseURL: 'https://wecarebill-92132.firebaseio.com'
+    var serviceAccount = require(sails.config.appPath + '/wecarebill-92132-firebase-adminsdk-7usxj-6240df0e36.json');
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+      databaseURL: 'https://wecarebill-92132.firebaseio.com'
 
-    // });
+    });
 
-    // var db = admin.firestore();
-    // var surgery = await db.collection('surgery').doc('58').collection('option').doc('general').get()
+    var db = admin.firestore();
+    var surgery = await db.collection('surgery').doc('58').collection('option').doc('general').get()
     
-    // agent.add(surgery);
+    agent.add(surgery);
 
-    agent.add(`Hi`);
+    // agent.add(`Hi`);
   }
 
   function fallback(agent) {
