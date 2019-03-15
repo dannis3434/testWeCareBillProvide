@@ -15,10 +15,10 @@
 
 module.exports.models = {
 
-  'connection': 'firebase',
+
   /***************************************************************************
   *                                                                          *
-  * Whether the `.create()` and `.update()` model methods should ignore      *
+  * Whether model methods like `.create()` and `.update()` should ignore     *
   * (and refuse to persist) unrecognized data-- i.e. properties other than   *
   * those explicitly defined by attributes in the model definition.          *
   *                                                                          *
@@ -101,7 +101,7 @@ module.exports.models = {
   ******************************************************************************/
 
   dataEncryptionKeys: {
-    default: 'um8uQ3dwqhEOsCWR/i63P55OKdnxKaH/uSDx4Mbeq18='
+    default: 'cOjpARz1wdDlcGbl2rsWEUBDQhp8/r9jXrpth6q4yxM='
   },
 
 
