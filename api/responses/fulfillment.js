@@ -9,7 +9,7 @@ module.exports = function () {
   const agent = new WebhookClient({ request: req, response: res });
 
   function welcome(agent) {
-    agent.add(`Welcome to my agent!`);
+    agent.add(`Welcome to my agent!++++++`);
   }
 
   function fallback(agent) {
