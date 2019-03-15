@@ -31,11 +31,10 @@ module.exports = function () {
   }
 
 // get the price via the general option id and specific option id
-  function checking(agent){
-    agent.add(new Card({
-        buttonText:'',
-    })
-    );
+ async function checkingBaseRange(agent){
+    
+  var surgery = await db.collection('surgery').doc('58').get(baseline_price)
+  agent.add(surgery);
   }
 
   // function yourFunctionHandler(agent) {
@@ -57,7 +56,7 @@ module.exports = function () {
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
   // intentMap.set('Default Fallback Intent', checking);
-  intentMap.set('User inputs surgery', welcome);
+  intentMap.set('User does not provide doctor name', checkingBaseRange);
   // intentMap.set('<INTENT_NAME_HERE>', yourFunctionHandler);
   // intentMap.set('<INTENT_NAME_HERE>', googleAssistantHandler);
   agent.handleRequest(intentMap)
