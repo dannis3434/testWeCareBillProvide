@@ -20,9 +20,15 @@ module.exports = function () {
     });
 
     var db = admin.firestore();
-    var surgery = await db.collection('surgery').doc('58').collection('option').doc('general').get()
+    var lowerBaselinePrice
+    var upperBaselinePrice
+    var surgery = await db.collection('surgery').doc('58').get().then(doc => {lowerBaselinePrice= doc.data().lowerBaselinePrice;});
+    var surgery = await db.collection('surgery').doc('58').get().then(doc => {upperBaselinePrice= doc.data().upperBaselinePrice;});
+
+    console.log(lowerBaselinePrice);
+    console.log(upperBaselinePrice);
     
-    agent.add(surgery);
+    agent.add(lowerBaselinePrice);
 
     // agent.add(`Hi`);
   }
