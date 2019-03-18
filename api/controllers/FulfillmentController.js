@@ -23,8 +23,8 @@ module.exports = {
     var upperBaselinePrice
     var surgery1 = await db.collection('surgery').doc('58');
     // lowerBaselinePrice = surgery1.where('lowerBaselinePrice','==',8300).get();
-    var surgery = await db.collection('surgery').doc('58').get().then(doc => {lowerBaselinePrice= doc.data().lowerBaselinePrice;});
-    var surgery = await db.collection('surgery').doc('58').get().then(doc => {upperBaselinePrice= doc.data().upperBaselinePrice;});
+    // var surgery = await db.collection('surgery').doc('58').get().then(doc => {lowerBaselinePrice= doc.data().lowerBaselinePrice;});
+    // var surgery = await db.collection('surgery').doc('58').get().then(doc => {upperBaselinePrice= doc.data().upperBaselinePrice;});
     console.log(surgery1);
     console.log(typeof lowerBaselinePrice);
     console.log(upperBaselinePrice);

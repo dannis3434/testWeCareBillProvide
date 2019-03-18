@@ -29,11 +29,11 @@ module.exports = function () {
     var lowerBaselinePrice
     var upperBaselinePrice
     var surgery = await db.collection('surgery').doc('58').get();
-    var surgeryOptions = await surgery.collection('option').doc().get()
-    surgeryOptions.forEach(element => {
-      console.log(element.id);
-      console.log(element.data())
-    });
+    // var surgeryOptions = await surgery.collection('option').doc().get()
+    // surgeryOptions.forEach(element => {
+    //   console.log(element.id);
+    //   console.log(element.data())
+    // });
     // await surgery.collection('option').doc('general').collection('A').doc().get()
 
     // var surgery1 = await db.collection('surgery').doc('58');
