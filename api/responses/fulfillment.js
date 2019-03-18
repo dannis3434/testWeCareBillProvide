@@ -8,29 +8,19 @@ module.exports = function () {
 
   const agent = new WebhookClient({ request: req, response: res });
 
+  var admin = require('firebase-admin');
+
+  var serviceAccount = require(sails.config.appPath + '/wecarebill-92132-firebase-adminsdk-7usxj-6240df0e36.json');
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: 'https://wecarebill-92132.firebaseio.com'
+
+  });
+
+  var db = admin.firestore();
+
   async function welcome(agent) {
-    
-    var admin = require('firebase-admin');
-
-    var serviceAccount = require(sails.config.appPath + '/wecarebill-92132-firebase-adminsdk-7usxj-6240df0e36.json');
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-      databaseURL: 'https://wecarebill-92132.firebaseio.com'
-
-    });
-
-    var db = admin.firestore();
-    var lowerBaselinePrice
-    var upperBaselinePrice
-    var surgery = await db.collection('surgery').doc('58').get().then(doc => {lowerBaselinePrice= doc.data().lowerBaselinePrice;});
-    var surgery = await db.collection('surgery').doc('58').get().then(doc => {upperBaselinePrice= doc.data().upperBaselinePrice;});
-
-    console.log(lowerBaselinePrice);
-    console.log(upperBaselinePrice);
-    
-    agent.add(lowerBaselinePrice);
-
-    // agent.add(`Hi`);
+    agent.add(`Hi`);
   }
 
   function fallback(agent) {
@@ -44,6 +34,20 @@ module.exports = function () {
   var surgery = await db.collection('surgery').doc('58').get(baseline_price)
   agent.add(surgery);
   }
+
+  async function checking(agent){
+    var lowerBaselinePrice
+    var upperBaselinePrice
+    var surgery = await db.collection('surgery').doc('58').get().then(doc => {lowerBaselinePrice= doc.data().lowerBaselinePrice;});
+    var surgery1 = await db.collection('surgery').doc('58');
+    var surgery = await db.collection('surgery').doc('58').get().then(doc => {upperBaselinePrice= doc.data().upperBaselinePrice;});
+  
+    
+    console.log(lowerBaselinePrice);
+    console.log(upperBaselinePrice);
+    
+    agent.add(lowerBaselinePrice);
+    }
 
   // function yourFunctionHandler(agent) {
   //   agent.add(`This message is from Dialogflow's Cloud Functions for Firebase editor!`);
@@ -63,7 +67,7 @@ module.exports = function () {
   let intentMap = new Map();
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
-  // intentMap.set('Default Fallback Intent', checking);
+  intentMap.set('User inputs surgery', checking);
   intentMap.set('User does not provide doctor name', checkingBaseRange);
   // intentMap.set('<INTENT_NAME_HERE>', yourFunctionHandler);
   // intentMap.set('<INTENT_NAME_HERE>', googleAssistantHandler);
