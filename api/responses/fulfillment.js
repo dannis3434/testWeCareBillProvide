@@ -34,7 +34,7 @@ module.exports = function () {
       console.log(element.id);
       console.log(element.data())
     });
-    await surgery.collection('option').doc('general').collection('A').doc().get()
+    // await surgery.collection('option').doc('general').collection('A').doc().get()
 
     // var surgery1 = await db.collection('surgery').doc('58');
     // var surgery = await db.collection('surgery').doc('58').get();
