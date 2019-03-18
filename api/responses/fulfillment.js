@@ -8,19 +8,8 @@ module.exports = function () {
 
   const agent = new WebhookClient({ request: req, response: res });
 
-  var db 
-
   async function welcome(agent) {
-    var admin = require('firebase-admin');
 
-    var serviceAccount = require(sails.config.appPath + '/wecarebill-92132-firebase-adminsdk-7usxj-6240df0e36.json');
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-      databaseURL: 'https://wecarebill-92132.firebaseio.com'
-  
-    });
-  
-    db = admin.firestore();
     agent.add(`你好~ 我是病不孤單人工客服，免費幫您按預算找專科手術醫生，以及提供數據讓你更了解你的手術收費。請問你想查詢什麼手術？`);
   }
 
