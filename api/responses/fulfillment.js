@@ -28,15 +28,22 @@ module.exports = function () {
   async function checking(agent){
     var lowerBaselinePrice
     var upperBaselinePrice
-    var surgery = await db.collection('surgery').doc('58').get().then(doc => {lowerBaselinePrice= doc.data().lowerBaselinePrice;});
-    var surgery1 = await db.collection('surgery').doc('58');
-    var surgery = await db.collection('surgery').doc('58').get().then(doc => {upperBaselinePrice= doc.data().upperBaselinePrice;});
-  
+    var surgery = await db.collection('surgery').doc('58').get();
+    var surgeryOptions = await surgery.collection('option').doc().get()
+    surgeryOptions.forEach(element => {
+      console.log(element.id);
+      console.log(element.data())
+    });
+    await surgery.collection('option').doc('general').collection('A').doc().get()
+
+    // var surgery1 = await db.collection('surgery').doc('58');
+    // var surgery = await db.collection('surgery').doc('58').get();
     
-    console.log(lowerBaselinePrice);
+    console.log(surgery.data().lowerBaselinePrice);
     console.log(upperBaselinePrice);
     
     agent.add(lowerBaselinePrice);
+
     }
 
   // function yourFunctionHandler(agent) {
