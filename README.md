@@ -1,11 +1,12 @@
-# sails-dialogflow
+# wecarebill
 
 a [Sails v1](https://sailsjs.com) application
 
 
 ### Links
 
-+ [Sails framework documentation](https://sailsjs.com/get-started)
++ [Get started](https://sailsjs.com/get-started)
++ [Sails framework documentation](https://sailsjs.com/documentation)
 + [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
 + [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
 + [Community support options](https://sailsjs.com/support)
@@ -14,9 +15,9 @@ a [Sails v1](https://sailsjs.com) application
 
 ### Version info
 
-This app was originally generated on Wed Jan 30 2019 12:36:23 GMT+0800 (Hong Kong Standard Time) using Sails v1.1.0.
+This app was originally generated on Fri Mar 08 2019 14:13:50 GMT+0800 (中國標準時間) using Sails v1.0.2.
 
-<!-- Internally, Sails used [`sails-generate@1.16.4`](https://github.com/balderdashy/sails-generate/tree/v1.16.4/lib/core-generators/new). -->
+<!-- Internally, Sails used [`sails-generate@1.15.28`](https://github.com/balderdashy/sails-generate/tree/v1.15.28/lib/core-generators/new). -->
 
 
 

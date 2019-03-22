@@ -10,6 +10,11 @@
 
 module.exports.routes = {
 
+
+  //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
+  //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
+  //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
+
   /***************************************************************************
   *                                                                          *
   * Make the view located at `views/homepage.ejs` your home page.            *
@@ -18,10 +23,12 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-
-  'ALL /': 'FulfillmentController.index',
-  'GET /index2' :  'FulfillmentController.index2',
-
+ 'ALL /': 'MainController.fulfill',
+ 'GET /index2' :  'MainController.index2',
+ //'GET /index2' :  'FulfillmentController.index2',
+  // '/': {
+  //   view: 'pages/homepage'
+  // },
 
   /***************************************************************************
   *                                                                          *
@@ -33,6 +40,22 @@ module.exports.routes = {
   * not match any of those, it is matched against static assets.             *
   *                                                                          *
   ***************************************************************************/
+
+
+  //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
+  //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
+  //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
+
+
+
+  //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
+  //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
+  //  ╚╩╝╚═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝
+
+
+  //  ╔╦╗╦╔═╗╔═╗
+  //  ║║║║╚═╗║
+  //  ╩ ╩╩╚═╝╚═╝
 
 
 };

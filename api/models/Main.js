@@ -1,7 +1,7 @@
 /**
- * Fulfillment.js
+ * Main.js
  *
- * @description :: A model definition represents a database table/collection.
+ * @description :: A model definition.  Represents a database table/collection/etc.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
 

@@ -18,7 +18,7 @@ module.exports.models = {
 
   /***************************************************************************
   *                                                                          *
-  * Whether model methods like `.create()` and `.update()` should ignore     *
+  * Whether the `.create()` and `.update()` model methods should ignore      *
   * (and refuse to persist) unrecognized data-- i.e. properties other than   *
   * those explicitly defined by attributes in the model definition.          *
   *                                                                          *
@@ -101,7 +101,7 @@ module.exports.models = {
   ******************************************************************************/
 
   dataEncryptionKeys: {
-    default: 'cOjpARz1wdDlcGbl2rsWEUBDQhp8/r9jXrpth6q4yxM='
+    default: 'O1S+/o2aKfigY9dyleZSdpHCn9uVDCPWCBaSZtHV2ps='
   },
 
 
