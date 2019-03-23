@@ -266,6 +266,21 @@ agent.setFollowupEvent('looping')
 
     }
 
+    async function option(agent){
+        let params = agent.parameters;
+        let decision = params.decision;
+        if (decision = 'ok'){
+            console.log(typeof decision)
+            console.log(decision)
+            agent.add('請問醫生名稱，如不知道，請輸入');
+        } else {
+            console.log(typeof decision)
+            console.log(decision)
+            agent.add('這個胃鏡案例收費');
+        }
+        console.log(typeof decision)
+    }
+
     async function followup(agent){
 
     }
@@ -277,6 +292,7 @@ agent.setFollowupEvent('looping')
     intentMap.set('user provides doctor name', doctorName);
     intentMap.set('user does not provide doctor name', noDoctorName)
     intentMap.set('followup', followup);
+    intentMap.set('user modifies options', option);
     // intentMap.set('user provides hospital', hospital);
     intentMap.set('user provides price', price);
     // intentMap.set('user wants to see doctor list', doctorList);
