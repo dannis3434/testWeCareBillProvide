@@ -26,7 +26,7 @@ module.exports = function () {
     async function surgery(agent) {
         let conv = agent.conv();
         let params = agent.parameters;
-        let surgery = params.surgery;
+        var surgery = params.surgery;
         console.log("The surgery name is " + surgery);
         agent.add('請問醫生名稱，如不知道，請輸入"不知道"**');
     }
@@ -213,8 +213,6 @@ agent.setFollowupEvent('looping')
         // // getFulfillmentText(agent);
         // console.log("Surgery in doctor name intent: ");
         console.log('here')
-        agent.setFollowupEvent('moveToBaseLine');;
-
     }
 
     async function hospital(agent) {
@@ -231,7 +229,7 @@ agent.setFollowupEvent('looping')
         let params = agent.parameters;
         price = params.price;
         console.log("The price is " + price);
-        agent.add("The price is " + price);
+        agent.setFollowupEvent('moveToBaseLine');;
 
     }
     async function followup(agent){
