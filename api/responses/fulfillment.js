@@ -276,7 +276,7 @@ agent.setFollowupEvent('looping')
         } else {
             console.log(typeof decision)
             console.log(decision)
-            agent.add('這個胃鏡案例收費');
+            agent.setFollowupEvent('looping');
         }
         console.log(typeof decision)
     }
