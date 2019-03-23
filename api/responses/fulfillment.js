@@ -269,6 +269,7 @@ agent.setFollowupEvent('looping')
     async function option(agent){
         let params = agent.parameters;
         let decision = params.decision;
+        console.log(decision)
         if (decision = 'ok'){
             console.log(typeof decision)
             console.log(decision)
