@@ -38,7 +38,7 @@ module.exports = function () {
         var outputContexts = agent.context.get('outputcontexts');
         console.log('outputContexts: ' + outputContexts);
         var contextSurgery = outputContexts.parameters.surgery; // >> 58
-
+agent.setFollowupEvent('looping')
         // Search the document of the requested surgery from firebase
         var surgery = await db.collection('surgery').doc(contextSurgery).get();
 
@@ -206,13 +206,14 @@ module.exports = function () {
 
     }
     async function doctorName(agent) {
-        let params = agent.parameters;
-        doctorName = params.doctorName;
-        console.log(agent.getContext('userprovidessurgery-followup'))
-        console.log("The doctor name is " + doctorName);
-        // getFulfillmentText(agent);
-        console.log("Surgery in doctor name intent: ");
-        agent.add('請問醫院名稱**');
+        // let params = agent.parameters;
+        // doctorName = params.doctorName;
+        // console.log(agent.getContext('userprovidessurgery-followup'))
+        // console.log("The doctor name is " + doctorName);
+        // // getFulfillmentText(agent);
+        // console.log("Surgery in doctor name intent: ");
+        console.log('here')
+        agent.setFollowupEvent('moveToBaseLine');;
 
     }
 
@@ -244,10 +245,10 @@ module.exports = function () {
     intentMap.set('user provides doctor name', doctorName);
     intentMap.set('user does not provide doctor name', noDoctorName)
     intentMap.set('followup', followup);
-    intentMap.set('user provides hospital', hospital);
+    // intentMap.set('user provides hospital', hospital);
     intentMap.set('user provides price', price);
-    intentMap.set('user wants to see doctor list', doctorList);
-    intentMap.set('user does not want to see doctor list', noDoctorList);
+    // intentMap.set('user wants to see doctor list', doctorList);
+    // intentMap.set('user does not want to see doctor list', noDoctorList);
     // intentMap.set('user does not provide doctor name', noDoctorName);
     // intentMap.set('user wants to see doctor list', doctorlist);
     // intentMap.set('follow up', followUp);
