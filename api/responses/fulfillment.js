@@ -307,7 +307,9 @@ agent.setFollowupEvent('looping')
         agent.add(outputMessage);
 
     }
-
+async function followup(agent){
+    
+}
     let intentMap = new Map();
     intentMap.set('Default Welcome Intent', welcome);
     intentMap.set('Default Fallback Intent', fallback);
@@ -317,7 +319,6 @@ agent.setFollowupEvent('looping')
     intentMap.set('followup', followup);
     intentMap.set('user modifies options', option);
     intentMap.set('system shows options', shows);
-   
     // intentMap.set('user provides hospital', hospital);
     intentMap.set('user provides price', price);
     // intentMap.set('user wants to see doctor list', doctorList);
