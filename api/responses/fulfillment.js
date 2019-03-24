@@ -275,14 +275,36 @@ agent.setFollowupEvent('looping')
             console.log(decision)
             agent.add('請問醫生名稱，如不知道，請輸入');
         } else {
-            console.log(typeof decision)
+            console.log(haha)
             console.log(decision)
             agent.setFollowupEvent('looping');
         }
         console.log(typeof decision)
     }
 
-    async function followup(agent){
+    async function shows(agent){
+        var outputContexts = agent.context.get('outputcontexts');
+        var contextOption = outputContexts.parameters.decision;
+        var contextSurgery = outputContexts.parameters.surgery;
+    
+        async function getOptions() {
+            var output = await '更改選項，你的個案不是';
+            
+            //Get all collections of "Specific" document
+            var optionsRef = await db.collection('surgery').doc(contextSurgery).collection('option').doc('specific').collection(contextOption).get();
+            // Use for each to loop all collections > element = a collection
+            await optionsRef.forEach(doc => {
+                    if (doc.data().price == 0){
+                        output += doc.data().content+"。請選擇： ";
+                    }else{
+                    output += doc.id+". "+ doc.data().content +" ";
+                    }
+                    // output += doc.data()['content'];
+                });
+                return output
+        }
+        var outputMessage =await getOptions()+" 不需更改請輸入[返回]。";
+        agent.add(outputMessage);
 
     }
 
@@ -294,6 +316,8 @@ agent.setFollowupEvent('looping')
     intentMap.set('user does not provide doctor name', noDoctorName)
     intentMap.set('followup', followup);
     intentMap.set('user modifies options', option);
+    intentMap.set('system shows options', shows);
+   
     // intentMap.set('user provides hospital', hospital);
     intentMap.set('user provides price', price);
     // intentMap.set('user wants to see doctor list', doctorList);
