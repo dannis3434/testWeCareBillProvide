@@ -270,7 +270,7 @@ agent.setFollowupEvent('looping')
         let params = agent.parameters;
         let decision = params.decision;
         console.log(decision)
-        if (decision = 'ok'){
+        if (decision === 'ok'){
             console.log(typeof decision)
             console.log(decision)
             agent.add('請問醫生名稱，如不知道，請輸入');
