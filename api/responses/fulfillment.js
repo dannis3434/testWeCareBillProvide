@@ -266,21 +266,21 @@ agent.setFollowupEvent('looping')
 
     }
 
-    async function option(agent){
-        let params = agent.parameters;
-        let decision = params.decision;
-        console.log(decision)
-        if (decision === 'ok'){
-            console.log(typeof decision)
-            console.log(decision)
-            agent.add('請問醫生名稱，如不知道，請輸入');
-        } else {
-            console.log(haha)
-            console.log(decision)
-            agent.setFollowupEvent('looping');
-        }
-        console.log(typeof decision)
-    }
+    // async function option(agent){
+    //     let params = agent.parameters;
+    //     let decision = params.decision;
+    //     console.log(decision)
+    //     if (decision === 'ok'){
+    //         console.log(typeof decision)
+    //         console.log(decision)
+    //         agent.add('請問醫生名稱，如不知道，請輸入');
+    //     } else {
+    //         // console.log(haha)
+    //         // console.log(decision)
+    //         agent.setFollowupEvent('looping');
+    //     }
+    //     console.log(typeof decision)
+    // }
 
     async function shows(agent){
         var outputContexts = agent.context.get('outputcontexts');
@@ -308,7 +308,7 @@ agent.setFollowupEvent('looping')
 
     }
 async function followup(agent){
-    
+
 }
     let intentMap = new Map();
     intentMap.set('Default Welcome Intent', welcome);
@@ -317,7 +317,7 @@ async function followup(agent){
     intentMap.set('user provides doctor name', doctorName);
     intentMap.set('user does not provide doctor name', noDoctorName)
     intentMap.set('followup', followup);
-    intentMap.set('user modifies options', option);
+    // intentMap.set('user modifies options', option);
     intentMap.set('system shows options', shows);
     // intentMap.set('user provides hospital', hospital);
     intentMap.set('user provides price', price);
